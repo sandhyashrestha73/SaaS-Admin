@@ -1,48 +1,60 @@
+// src/pages/Settings.jsx
+import React from 'react';
 
-import React, { useState } from 'react'
-
-const Settings = () => {
-
-  const [name, setName] = useState("Sandhya")
-
+export default function Settings() {
   return (
-    <div>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="lg:col-span-2 bg-white rounded-lg shadow-sm border p-6">
+        <h3 className="text-lg font-semibold">Account Settings</h3>
+        <div className="mt-4 space-y-4">
+          <div>
+            <label className="text-sm text-slate-600">Name</label>
+            <input className="w-full mt-1 px-3 py-2 border rounded-md" defaultValue="Sandhya Shrestha" />
+          </div>
 
-      <h1 className='text-4xl font-bold mb-8'>
-        Settings
-      </h1>
+          <div>
+            <label className="text-sm text-slate-600">Email</label>
+            <input className="w-full mt-1 px-3 py-2 border rounded-md" defaultValue="sandhya@example.com" />
+          </div>
 
-      <div className='bg-[#1e293b] p-8 rounded-2xl max-w-xl'>
+          <div>
+            <label className="text-sm text-slate-600">Password</label>
+            <input type="password" className="w-full mt-1 px-3 py-2 border rounded-md" placeholder="••••••••" />
+          </div>
 
-        <label className='block mb-2'>
-          Name
-        </label>
-
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className='w-full p-3 rounded-lg bg-slate-800 outline-none mb-6'
-        />
-
-        <label className='block mb-2'>
-          Password
-        </label>
-
-        <input
-          type="password"
-          placeholder='Enter password'
-          className='w-full p-3 rounded-lg bg-slate-800 outline-none mb-6'
-        />
-
-        <button className='bg-cyan-500 text-black px-6 py-3 rounded-lg font-semibold'>
-          Save Changes
-        </button>
-
+          <div className="flex items-center gap-3">
+            <button className="px-4 py-2 bg-primary text-white rounded-md">Save changes</button>
+            <button className="px-4 py-2 border rounded-md">Cancel</button>
+          </div>
+        </div>
       </div>
 
-    </div>
-  )
-}
+      <div className="bg-white rounded-lg shadow-sm border p-6">
+        <h3 className="text-lg font-semibold">Preferences</h3>
+        <div className="mt-4 space-y-3">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="text-sm font-medium">Theme</div>
+              <div className="text-xs text-slate-500">Light / Dark mode</div>
+            </div>
+            <select className="px-3 py-2 border rounded-md">
+              <option>Light</option>
+              <option>Dark</option>
+            </select>
+          </div>
 
-export default Settings
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="text-sm font-medium">Notifications</div>
+              <div className="text-xs text-slate-500">Email and in-app</div>
+            </div>
+            <div className="flex items-center gap-2">
+              <label className="text-sm">Email</label>
+              <input type="checkbox" className="h-4 w-4" defaultChecked />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
