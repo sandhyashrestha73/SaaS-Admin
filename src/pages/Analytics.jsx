@@ -138,7 +138,15 @@ export default function Analytics() {
           </ul>
         </div>
 
+        <div className="bg-purple-100 p-4 w-40 rounded mt-4">
+          <h3 className="font-bold">AI Insight</h3>
+          <p>
+             Revenue is growing steadily. Mobile users are increasing faster than desktop.
+          </p>
+        </div>
+
       </div>
+
     </div>
   );
 }
