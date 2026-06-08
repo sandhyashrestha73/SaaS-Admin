@@ -42,7 +42,7 @@ export default function Sidebar({ collapsed, setCollapsed }) {
     >
       <div className="flex items-center justify-between p-4 border-b">
         <div className="flex  items-center gap-2">
-          <div className={clsx('h-8 w-8 rounded-md bg-primary flex items-center justify-center text-black', collapsed && 'mx-auto')}>
+          <div className={clsx('h-8 w-8 rounded-md bg-primary flex bg-blue-200 items-center justify-center text-black', collapsed && 'mx-auto')}>
             S
           </div>
           {!collapsed && <span className="font-semibold text-lg">SaaS Admin</span>}

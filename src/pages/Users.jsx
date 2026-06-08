@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Table from "../components/Table";
 
 const initialData = [
@@ -9,9 +9,14 @@ const initialData = [
 ];
 
 export default function Users() {
-  const [users, setUsers] = useState(initialData);
-  const [search, setSearch] = useState("");
 
+  // LOAD FROM LOCALSTORAGE
+  const [users, setUsers] = useState(() => {
+    const saved = localStorage.getItem("users");
+    return saved ? JSON.parse(saved) : initialData;
+  });
+
+  const [search, setSearch] = useState("");
   const [showForm, setShowForm] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -21,6 +26,11 @@ export default function Users() {
     role: "Viewer",
     status: "Active",
   });
+
+  // SAVE TO LOCALSTORAGE EVERY TIME USERS CHANGE
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+  }, [users]);
 
   // SEARCH FILTER
   const filteredData = users.filter((user) =>
@@ -39,6 +49,8 @@ export default function Users() {
 
   // ADD OR UPDATE USER
   const handleSaveUser = () => {
+    if (formData.name === "" || formData.email === "") return;
+
     if (formData.id) {
       // UPDATE USER
       const updated = users.map((u) =>
