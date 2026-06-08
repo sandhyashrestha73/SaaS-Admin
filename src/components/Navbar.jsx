@@ -1,5 +1,5 @@
 // src/components/Navbar.jsx
-import React from 'react';
+/*import React from 'react';
 
 function SearchIcon() {
   return (
@@ -56,6 +56,44 @@ export default function Navbar({ collapsed, setCollapsed }) {
               <div className="text-sm font-medium">Sandhya</div>
               <div className="text-xs text-slate-500">Admin</div>
             </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
+  */
+
+
+
+import React from "react";
+
+export default function Navbar({ collapsed, setCollapsed, search, setSearch }) {
+  return (
+    <header className="w-full bg-white border-b">
+      <div className="flex items-center  justify-between p-3 md:p-4">
+
+        {/* Left */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setCollapsed(!collapsed)}
+            className="p-2 rounded-md hover:bg-slate-100 transition"
+          >
+            ☰
+          </button>
+
+        
+        </div>
+
+        {/* Right */}
+        <div className="flex items-center gap-4">
+          <button className="hover:bg-slate-100 p-2 rounded-md transition">
+            🔔
+          </button>
+
+          <div className="flex items-center gap-2">
+            <div className="h-8 w-8 bg-slate-300 rounded-full"><img className=" h-9 w-9 rounded-full" src="profile.png" alt="" /></div>
+            <span className="text-sm">Admin</span>
           </div>
         </div>
       </div>

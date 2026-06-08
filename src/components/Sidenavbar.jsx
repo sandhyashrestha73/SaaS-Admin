@@ -36,13 +36,13 @@ export default function Sidebar({ collapsed, setCollapsed }) {
   return (
     <aside
       className={clsx(
-        'bg-white border-r hidden md:flex flex-col transition-all duration-300',
+        'bg-white border-r hidden md:flex flex-col transition-all duration-300 ',
         collapsed ? 'w-20' : 'w-64'
       )}
     >
       <div className="flex items-center justify-between p-4 border-b">
-        <div className="flex items-center gap-2">
-          <div className={clsx('h-8 w-8 rounded-md bg-primary flex items-center justify-center text-white', collapsed && 'mx-auto')}>
+        <div className="flex  items-center gap-2">
+          <div className={clsx('h-8 w-8 rounded-md bg-primary flex items-center justify-center text-black', collapsed && 'mx-auto')}>
             S
           </div>
           {!collapsed && <span className="font-semibold text-lg">SaaS Admin</span>}
